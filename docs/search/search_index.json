@@ -1,0 +1,79 @@
+{
+    "docs": [
+        {
+            "location": "/",
+            "text": "Tutoriels autour de Sonic Pi\n\u00b6\n\n\nLes ressources en fran\u00e7ais sont maigres autour du logiciel \nSonic Pi\n ; ce site vous propose mes explorations autour de Sonic Pi, logiciel cr\u00e9\u00e9 par Sam AARON.\n\n\nPourquoi utiliser Sonic Pi ?\n\u00b6\n\n\nSonic Pi est con\u00e7u pour simplifier la cr\u00e9ation musicale \u00e0 partir d'un langage de programmation.\n\n\nCertes, il faut apprendre son langage, c'est \u00e0 dire \nses instructions\n. Vous pourrez \n\"jouer du Sonic Pi\"\n comme vous jouez peut-\u00eatre du piano ou de la guitare.\n\n\nEn explorant Sonic Pi, vous apprendrez la programmation, les technologies qui gravitent autour du son, vous en d\u00e9couvrirez tous les jours un peu plus.\n\n\nCe site n'a pas pour vocation de vous aider \u00e0 d\u00e9buter, l'aide incluse dans Sonic Pi est faite pour cela, mais de partager des astuces, garder des traces de mes exp\u00e9riences. Les scripts seront fournis sur mon d\u00e9p\u00f4t github.\n\n\nSinon un petit conseil : comme tout instrument, il faut pratiquer tous les jours. Donnez-vous 30 minutes par jour pour d\u00e9compresser et laisser cour \u00e0 votre imagination en jouant du Sonic Pi. \nBonne exploration !\n\n\nRessources sur le web\n\u00b6\n\n\n\n\nLe site officiel de Sonic Pi\n\n\nle forum de discussion in english de la communaut\u00e9 de Sonic Pi\n\n\nSoutenez financi\u00e8rement Sam AARON en devenant \"Patron\" : \nhttps://www.patreon.com/samaaron/memberships\n\n\nl'aide comprise dans le logiciel est tr\u00e8s bien faite et en fran\u00e7ais.",
+            "title": "Accueil"
+        },
+        {
+            "location": "/#tutoriels-autour-de-sonic-pi",
+            "text": "Les ressources en fran\u00e7ais sont maigres autour du logiciel  Sonic Pi  ; ce site vous propose mes explorations autour de Sonic Pi, logiciel cr\u00e9\u00e9 par Sam AARON.",
+            "title": "Tutoriels autour de Sonic Pi"
+        },
+        {
+            "location": "/#pourquoi-utiliser-sonic-pi",
+            "text": "Sonic Pi est con\u00e7u pour simplifier la cr\u00e9ation musicale \u00e0 partir d'un langage de programmation.  Certes, il faut apprendre son langage, c'est \u00e0 dire  ses instructions . Vous pourrez  \"jouer du Sonic Pi\"  comme vous jouez peut-\u00eatre du piano ou de la guitare.  En explorant Sonic Pi, vous apprendrez la programmation, les technologies qui gravitent autour du son, vous en d\u00e9couvrirez tous les jours un peu plus.  Ce site n'a pas pour vocation de vous aider \u00e0 d\u00e9buter, l'aide incluse dans Sonic Pi est faite pour cela, mais de partager des astuces, garder des traces de mes exp\u00e9riences. Les scripts seront fournis sur mon d\u00e9p\u00f4t github.  Sinon un petit conseil : comme tout instrument, il faut pratiquer tous les jours. Donnez-vous 30 minutes par jour pour d\u00e9compresser et laisser cour \u00e0 votre imagination en jouant du Sonic Pi.  Bonne exploration !",
+            "title": "Pourquoi utiliser Sonic Pi ?"
+        },
+        {
+            "location": "/#ressources-sur-le-web",
+            "text": "Le site officiel de Sonic Pi  le forum de discussion in english de la communaut\u00e9 de Sonic Pi  Soutenez financi\u00e8rement Sam AARON en devenant \"Patron\" :  https://www.patreon.com/samaaron/memberships  l'aide comprise dans le logiciel est tr\u00e8s bien faite et en fran\u00e7ais.",
+            "title": "Ressources sur le web"
+        },
+        {
+            "location": "/sonicpi-osc/",
+            "text": "",
+            "title": "Les bases"
+        },
+        {
+            "location": "/sonicpi-osc/script-python/",
+            "text": "Exemple de communication \u00e0 partir d'un script python\n\u00b6\n\n\nPython propose plusieurs librairies capable d'envoyer ou de recevoir des messages Open Sound Control.\n\n\nJ'ai choisi d'utiliser la librairie pythonosc.",
+            "title": "Exemple de communication avec python"
+        },
+        {
+            "location": "/sonicpi-osc/script-python/#exemple-de-communication-a-partir-dun-script-python",
+            "text": "Python propose plusieurs librairies capable d'envoyer ou de recevoir des messages Open Sound Control.  J'ai choisi d'utiliser la librairie pythonosc.",
+            "title": "Exemple de communication \u00e0 partir d'un script python"
+        },
+        {
+            "location": "/sonicpi-openstagecontrol/",
+            "text": "Communiquer avec Open Stage Control\n\u00b6\n\n\nOpen stage control\n permet de modifier dynamiquement son interface avec des messages osc appropri\u00e9s.\n\n\nLa documentation nous en dit un peu plus. \nhttps://osc.ammd.net/extras/remote-control/\n\n\nExemple de script pour agir sur l'interface web dynamiquement\n\u00b6\n\n\n 1\n 2\n 3\n 4\n 5\n 6\n 7\n 8\n 9\n10\n11\n12\n13\n14\n15\n16\n17\n18\n19\n20\n21\n22\n23\n24\n25\n26\n27\n28\n29\n30\n31\n32\n33\n34\n35\n36\n37\n38\n39\n40\n41\n42\n43\n44\n\"\"\"\n\n\nTest d'envoi vers open stage control d'un message osc\n\n\npour changer un label dynamiquement\n\n\n\"\"\"\n\n\nimport\n \nargparse\n\n\nimport\n \nrandom\n\n\nimport\n \ntime\n\n\n\nimport\n \njson\n\n\n\nfrom\n \npythonosc\n \nimport\n \nosc_message_builder\n\n\nfrom\n \npythonosc\n \nimport\n \nudp_client\n\n\n\n\n\"\"\"\n\n\njsonData = '{\"label\":\"New Label\"}'\n\n\njsonToPython = json.loads(jsonData)\n\n\n\"\"\"\n\n\n\npythonDictionary\n \n=\n \n{\n'label'\n:\n'nouveau nom'\n,\n\n\n'css'\n:\n'background-color:blue'\n}\n\n\ndictionaryToJson\n \n=\n \njson\n.\ndumps\n(\npythonDictionary\n)\n\n\n\nif\n \n__name__\n \n==\n \n\"__main__\"\n:\n\n  \nparser\n \n=\n \nargparse\n.\nArgumentParser\n()\n\n  \nparser\n.\nadd_argument\n(\n\"--ip\"\n,\n \ndefault\n=\n\"127.0.0.1\"\n,\n\n      \nhelp\n=\n\"adresse ip du serveur openstagecontrol\"\n)\n\n  \nparser\n.\nadd_argument\n(\n\"--port\"\n,\n \ntype\n=\nint\n,\n \ndefault\n=\n7777\n,\n\n      \nhelp\n=\n\"7777 the port open stage Control is listening on\"\n)\n\n  \nargs\n \n=\n \nparser\n.\nparse_args\n()\n\n\n  \nclient\n \n=\n \nudp_client\n.\nSimpleUDPClient\n(\nargs\n.\nip\n,\n \nargs\n.\nport\n)\n\n\nprint\n(\ndictionaryToJson\n)\n\n\nclient\n.\nsend_message\n(\n\"/fader_1\"\n,\n \n0.25\n)\n\n\ntime\n.\nsleep\n(\n2\n)\n\n\nclient\n.\nsend_message\n(\n\"/fader_2\"\n,\n \n0.75\n)\n\n\ntime\n.\nsleep\n(\n2\n)\n\n\nclient\n.\nsend_message\n(\n\"/push_5/display\"\n,\n \n0\n)\n\n\ntime\n.\nsleep\n(\n2\n)\n\n\nclient\n.\nsend_message\n(\n\"/push_5/display\"\n,\n \n1\n)\n\n\ntime\n.\nsleep\n(\n2\n)\n\n\nclient\n.\nsend_message\n(\n\"/EDIT\"\n,\n \n(\n\"push_4\"\n,\n \ndictionaryToJson\n))\n\n\ntime\n.\nsleep\n(\n16\n)\n\n\nclient\n.\nsend_message\n(\n\"/EDIT\"\n,\n \n(\n\"push_4\"\n,\n \n'{\"label\":\"Modified from script python\", \"color\":\"blue\"}'\n))\n\n\n\n\n\n\n\nInterface \u00e0 charger dans Open Sound Control\n\u00b6\n\n\n\n\n\n\nlancer OpenStageControl\n\n\n\n\n\n\nVoici ce que vous devriez voir.\n\n\n\n\n\n\n\n\n\n\n\n\ncharger l'interface en cliquant sur les ... de la ligne Load. Pointez vers le fichier json contenant l'interface d'Open Stage Control. \n\n\n\n\n\n\nappuyer sur Start.\n\n\n\n\n\n\nDans un navigateur \nhttp://127.0.0.1:9090\n\n\n\n\n\n\nCe qui nous donne comme interface ceci que vous pouvez atteindre \u00e0 l'adresse \nhttp://127.0.0.1:9000",
+            "title": "Open stage control"
+        },
+        {
+            "location": "/sonicpi-openstagecontrol/#communiquer-avec-open-stage-control",
+            "text": "Open stage control  permet de modifier dynamiquement son interface avec des messages osc appropri\u00e9s.  La documentation nous en dit un peu plus.  https://osc.ammd.net/extras/remote-control/",
+            "title": "Communiquer avec Open Stage Control"
+        },
+        {
+            "location": "/sonicpi-openstagecontrol/#exemple-de-script-pour-agir-sur-linterface-web-dynamiquement",
+            "text": "1\n 2\n 3\n 4\n 5\n 6\n 7\n 8\n 9\n10\n11\n12\n13\n14\n15\n16\n17\n18\n19\n20\n21\n22\n23\n24\n25\n26\n27\n28\n29\n30\n31\n32\n33\n34\n35\n36\n37\n38\n39\n40\n41\n42\n43\n44 \"\"\"  Test d'envoi vers open stage control d'un message osc  pour changer un label dynamiquement  \"\"\"  import   argparse  import   random  import   time  import   json  from   pythonosc   import   osc_message_builder  from   pythonosc   import   udp_client  \"\"\"  jsonData = '{\"label\":\"New Label\"}'  jsonToPython = json.loads(jsonData)  \"\"\"  pythonDictionary   =   { 'label' : 'nouveau nom' ,  'css' : 'background-color:blue' }  dictionaryToJson   =   json . dumps ( pythonDictionary )  if   __name__   ==   \"__main__\" : \n   parser   =   argparse . ArgumentParser () \n   parser . add_argument ( \"--ip\" ,   default = \"127.0.0.1\" , \n       help = \"adresse ip du serveur openstagecontrol\" ) \n   parser . add_argument ( \"--port\" ,   type = int ,   default = 7777 , \n       help = \"7777 the port open stage Control is listening on\" ) \n   args   =   parser . parse_args () \n\n   client   =   udp_client . SimpleUDPClient ( args . ip ,   args . port )  print ( dictionaryToJson )  client . send_message ( \"/fader_1\" ,   0.25 )  time . sleep ( 2 )  client . send_message ( \"/fader_2\" ,   0.75 )  time . sleep ( 2 )  client . send_message ( \"/push_5/display\" ,   0 )  time . sleep ( 2 )  client . send_message ( \"/push_5/display\" ,   1 )  time . sleep ( 2 )  client . send_message ( \"/EDIT\" ,   ( \"push_4\" ,   dictionaryToJson ))  time . sleep ( 16 )  client . send_message ( \"/EDIT\" ,   ( \"push_4\" ,   '{\"label\":\"Modified from script python\", \"color\":\"blue\"}' ))",
+            "title": "Exemple de script pour agir sur l'interface web dynamiquement"
+        },
+        {
+            "location": "/sonicpi-openstagecontrol/#interface-a-charger-dans-open-sound-control",
+            "text": "lancer OpenStageControl    Voici ce que vous devriez voir.       charger l'interface en cliquant sur les ... de la ligne Load. Pointez vers le fichier json contenant l'interface d'Open Stage Control.     appuyer sur Start.    Dans un navigateur  http://127.0.0.1:9090    Ce qui nous donne comme interface ceci que vous pouvez atteindre \u00e0 l'adresse  http://127.0.0.1:9000",
+            "title": "Interface \u00e0 charger dans Open Sound Control"
+        },
+        {
+            "location": "/sonicpi-openstagecontrol/interface-web-pour-sonicpi/",
+            "text": "Cr\u00e9er une interface web pour piloter Sonic Pi\n\u00b6\n\n\nvaste programme :-)",
+            "title": "Cr\u00e9er une interface web pour sonicpi"
+        },
+        {
+            "location": "/sonicpi-openstagecontrol/interface-web-pour-sonicpi/#creer-une-interface-web-pour-piloter-sonic-pi",
+            "text": "vaste programme :-)",
+            "title": "Cr\u00e9er une interface web pour piloter Sonic Pi"
+        },
+        {
+            "location": "/about/",
+            "text": "A propos\n\u00b6\n\n\nCette documentation est r\u00e9dig\u00e9e par Nicolas LE BELLIER.",
+            "title": "A propos"
+        },
+        {
+            "location": "/about/#a-propos",
+            "text": "Cette documentation est r\u00e9dig\u00e9e par Nicolas LE BELLIER.",
+            "title": "A propos"
+        }
+    ]
+}

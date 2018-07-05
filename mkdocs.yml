@@ -1,0 +1,68 @@
+site_name: Autour de Sonic Pi.
+site_description: Ressources en français pour Sonic Pi.
+site_author: Nicolas Le Bellier (https://n-l-b.fr)
+
+copyright: 'Utilisation : comme bon vous semble, citation souhaitée - 2018 - Nicolas (ni pepsis) LE BELLIER'
+
+
+docs_dir : docs_src
+site_dir : docs
+
+theme:
+    name: 'material'
+    custom_dir: 'mon-theme'
+    feature:
+        tabs: true
+    favicon: 'img/logo-nobadge.png?'
+    language: 'fr'
+    logo: 
+        icon: 'album'
+    palette:
+        primary: 'pink'
+        accent: 'light-blue'
+    font:
+        text: 'Noto sans'
+        code: 'Oxygen Mono'
+
+
+pages:
+- Accueil: 'index.md'
+- Sonic Pi et Open Sound Control :
+    - 'Les bases': 'sonicpi-osc/index.md'
+    - 'Exemple de communication avec python': 'sonicpi-osc/script-python.md'
+- Sonic Pi et Open Stage Control:
+    - 'Open stage control': 'sonicpi-openstagecontrol/index.md'
+    - 'Créer une interface web pour sonicpi': 'sonicpi-openstagecontrol/interface-web-pour-sonicpi.md'
+- A propos : about.md
+
+
+extra_css:
+  - 'css/extra.css'
+
+extra_javascript:
+  - 'js/extra.js'
+
+
+
+
+markdown_extensions:
+    - markdown.extensions.admonition
+    - markdown.extensions.codehilite:
+        guess_lang: false
+        linenums: true
+
+    - markdown.extensions.def_list
+    - markdown.extensions.footnotes
+    - markdown.extensions.meta
+    - markdown.extensions.toc(permalink=true)
+    - pymdownx.arithmatex
+    - pymdownx.betterem(smart_enable=all)
+    - pymdownx.caret
+    - pymdownx.critic
+    - pymdownx.inlinehilite
+    - pymdownx.magiclink
+    - pymdownx.mark
+    - pymdownx.smartsymbols
+    - pymdownx.superfences
+    - pymdownx.tasklist(custom_checkbox=true)
+    - pymdownx.tilde
