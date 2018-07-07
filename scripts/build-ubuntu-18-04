@@ -1,3 +1,4 @@
+# Based on https://github.com/samaaron/sonic-pi/blob/master/app/gui/qt/build-ubuntu-app
 # Modified by nlb (n-l-b.fr) to install on Ubuntu 18.04 TLS
 # Hope it works for you. 
 # 07/07/2018
