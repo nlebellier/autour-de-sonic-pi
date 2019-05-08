@@ -433,10 +433,10 @@
 
 <span class="kn">from</span> <span class="nn">pythonosc</span> <span class="kn">import</span> <span class="n">osc_message_builder</span>
 <span class="kn">from</span> <span class="nn">pythonosc</span> <span class="kn">import</span> <span class="n">udp_client</span>
-
-<span class="n">jsonData</span> <span class="o">=</span> <span class="s1">&#39;{&quot;label&quot;:&quot;New Label&quot;}&#39;</span>
-<span class="n">jsonToPython</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">jsonData</span><span class="p">)</span>
-
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">jsonData = &#39;{&quot;label&quot;:&quot;New Label&quot;}&#39;</span>
+<span class="sd">jsonToPython = json.loads(jsonData)</span>
+<span class="sd">&quot;&quot;&quot;</span>
 <span class="n">pythonDictionary</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;label&#39;</span><span class="p">:</span><span class="s1">&#39;nouveau nom&#39;</span><span class="p">,</span>
 <span class="s1">&#39;css&#39;</span><span class="p">:</span><span class="s1">&#39;background-color:blue&#39;</span><span class="p">}</span>
 <span class="n">dictionaryToJson</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">pythonDictionary</span><span class="p">)</span>
